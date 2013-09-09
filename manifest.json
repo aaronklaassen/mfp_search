@@ -12,8 +12,9 @@
         "http://www.myfitnesspal.com/recipe/add_ingredient*",
         "http://www.myfitnesspal.com/food/calorie-chart-nutrition-facts*"
         ],
-      //"css": ["basic.css"],
+      "css": ["controls.css"],
       "js": ["jquery-2.0.3.min.js", "filter.js"]
     }
-  ]
+  ],
+  "web_accessible_resources": ["jquery-2.0.3.min.js", "controls.html"]
 }
