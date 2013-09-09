@@ -3,7 +3,7 @@
 Gives filtering options for the MyFitnessPal food search.
 
 
-# Author
+## Author
 
 Aaron Klaassen
 
