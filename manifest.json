@@ -8,7 +8,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://www.myfitnesspal.com/food/add_to_diary*",
+        "http://www.myfitnesspal.com/food/search*",
         "http://www.myfitnesspal.com/recipe/add_ingredient*",
         "http://www.myfitnesspal.com/food/calorie-chart-nutrition-facts*"
         ],
