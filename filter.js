@@ -57,6 +57,11 @@ function loadFoodData()
       // TODO
       // parse html, i.e. scrape confirmations, etc.
       // add the confirmation count to the li
+
+      // TODO: .user_submitted doesn't always exist (my foods only?)
+      var line = $(html).find(".user_submitted").html().match(/\d+/)[0]
+      console.log(confirmations);
+
     });
 
   });
