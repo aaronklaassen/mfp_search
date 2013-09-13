@@ -1,5 +1,8 @@
 $(function() {
 
+  var food_data = loadFoodData();
+
+
   var url = chrome.extension.getURL("controls.html");
   $(".col-1 .col-3, .col-1 .col-2").append($('<div>').load(url, function() {
 
@@ -36,7 +39,27 @@ function updateFilteredList()
       $(this).parent().show();
     }
 
+  });
+}
+
+function loadFoodData()
+{
+  foods = new Array();
+
+  $("ul#matching li a").each(function() {
+
+    var url_tokens = $(this).attr("href").split("/");
+    var food_id = url_tokens[url_tokens.length - 1];
+
+    $(this).parent().addClass("food-" + food_id);
+
+    $.get($(this).attr("href"), function(html) {
+      // TODO
+      // parse html, i.e. scrape confirmations, etc.
+      // add the confirmation count to the li
+    });
 
   });
 
+  return foods;
 }
