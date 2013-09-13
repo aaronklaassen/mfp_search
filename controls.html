@@ -1,7 +1,8 @@
 <div class="search-filters">
   <div class="filter">
-    <a class="show-hide-user-sub">Hide user-submitted foods</a>
-    <a class="show-hide-user-sub" style="display: none;">Show user-submitted foods</a>
+    <a href="#hide" class="show-hide-user-sub">Hide user-submitted foods</a>
+    <a href="#show" class="show-hide-user-sub" style="display: none;">Show user-submitted foods</a>
+    <input type="hidden" id="hide-user-subbed" value="0" />
   </div>
   <div class="filter">
     <input type="text" id="filter-by-text" placeholder="show results containing..." />

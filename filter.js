@@ -5,49 +5,38 @@ $(function() {
 
     $("a.show-hide-user-sub").click(function(e) {
       e.preventDefault();
-      toggleUserSubmittedResults();
+      var hide = $(this).attr("href") == "#hide";
+      $("#hide-user-subbed").val(hide ? 1 : 0);
+      $("a.show-hide-user-sub").toggle();
+
+      updateFilteredList();
     });
 
-    $("#filter-by-text").keyup(function() {
-      hideNonMatchingResults($(this).val().toLowerCase().trim())
-    });
+    $("#filter-by-text").keyup(updateFilteredList);
 
   }));
 });
 
-
-
-
-
-function hideNonMatchingResults(needle)
+function updateFilteredList()
 {
-  if (needle == "")
-  {
-    $("ul#matching li").each(function() {
-      $(this).show();
-    });
-  } else {
+  var hideUserSubbed = $("#hide-user-subbed").val() == 1;
+  var filterKeywords = $("#filter-by-text").val().toLowerCase().trim();
 
-    $("ul#matching li a").each(function() {
-      if ($(this).html().toLowerCase().indexOf(needle) == -1)
-      {
-        $(this).parent().hide();
-      } else {
-        $(this).parent().show();
-      }
-    });
-  }
-}
-
-
-function toggleUserSubmittedResults()
-{
-  $("a.show-hide-user-sub").toggle();
   $("ul#matching li a").each(function() {
-    if ($(this).html().charAt(0) == "*")
-    {
-      $(this).parent().toggle();
-    }
-  });
-}
 
+    var foodName = $(this).html().toLowerCase();
+    var filterMatch = foodName.indexOf(filterKeywords) != -1;
+
+    var isUser = $(this).html().charAt(0) == "*";
+
+    if ( (hideUserSubbed && isUser) || (filterKeywords.length > 0 && !filterMatch) )
+    {
+      $(this).parent().hide();
+    } else {
+      $(this).parent().show();
+    }
+
+
+  });
+
+}

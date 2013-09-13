@@ -2,5 +2,11 @@ body#excerciseSearch.searchadd div#sort-block.block-4 div.col-1,
 body#excerciseSearch div.block-4 div#sort-block.col-1,
 body#food-search-results #main > div.block-4 > div.col-1 div.block-4 div.col-1
 {
-  height: 82px !important;
+  height: 90px !important;
+}
+
+.search-filters #filter-by-text
+{
+  padding: 5px;
+  width: 250px;
 }
