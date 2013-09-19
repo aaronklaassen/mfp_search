@@ -58,9 +58,14 @@ function loadFoodData()
       // parse html, i.e. scrape confirmations, etc.
       // add the confirmation count to the li
 
-      // TODO: .user_submitted doesn't always exist (my foods only?)
-      var line = $(html).find(".user_submitted").html().match(/\d+/)[0]
-      console.log(confirmations);
+      var line = $(html).find(".user_submitted").html();
+      if (line !== undefined)
+      {
+        var confirmations = line.match(/\d+/)[0]
+
+        $("ul#matching li.food-" + food_id).parent().append('<span class="confirmation-count">' + confirmations + '</li>');
+      }
+      
 
     });
 
