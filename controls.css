@@ -23,3 +23,14 @@ input#confirmation-sort
 {
   margin-bottom: -2px;
 }
+
+label.disabled
+{
+	color: #777;
+}
+
+img#confirmation-spinner
+{
+	height: 12px;
+	width: 12px;
+}

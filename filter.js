@@ -65,10 +65,17 @@ function loadFoodData()
         var confirmations = line.match(/\d+/)[0]
         $("ul#matching li.food-" + food_id).prepend('<span class="confirmation-count">' + confirmations + '</li>');
       }
-      
-
+ 
+      // Wait until we've got all the confirmation data fetched before we enable the sorting option.
       $("ul#matching li.food-" + food_id).addClass("loaded");
-      // TODO if loaded.count == li.count then enable confirmation sort
+      var loaded_items = $("ul#matching li.loaded").length;
+      var total_items = $("ul#matching li").length;
+      if (total_items == loaded_items)
+      {
+        $("#confirmation-sort").removeAttr("disabled");
+        $("label.confirmation-sort").removeClass("disabled");
+        $("#confirmation-spinner").hide();
+      }
 
     });
 
