@@ -16,4 +16,10 @@ span.confirmation-count
   color: #555;
   float: right;
   padding-top: 4px;
+  margin-right: 2px;
+}
+
+input#confirmation-sort
+{
+  margin-bottom: -2px;
 }

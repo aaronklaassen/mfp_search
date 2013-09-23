@@ -2,9 +2,8 @@ $(function() {
 
   var food_data = loadFoodData();
 
-
   var url = chrome.extension.getURL("controls.html");
-  $(".col-1 .col-3, .col-1 .col-2").append($('<div>').load(url, function() {
+  $(".col-1 .col-3, .col-1 .col-2").append($('<span>').load(url, function() {
 
     $("a.show-hide-user-sub").click(function(e) {
       e.preventDefault();
@@ -17,7 +16,10 @@ $(function() {
 
     $("#filter-by-text").keyup(updateFilteredList);
 
+    $("input#confirmation-sort").click(sortByConfirmations);
+
   }));
+
 });
 
 function updateFilteredList()
@@ -65,9 +67,39 @@ function loadFoodData()
       }
       
 
+      $("ul#matching li.food-" + food_id).addClass("loaded");
+      // TODO if loaded.count == li.count then enable confirmation sort
+
     });
 
   });
 
   return foods;
+}
+
+function sortByConfirmations()
+{
+  items = $("ul#matching").children("li").get();
+
+  items.sort(function(li_a, li_b) {
+    var conf_a = parseInt($(li_a).find(".confirmation-count").html());
+    var conf_b = parseInt($(li_b).find(".confirmation-count").html());
+
+    conf_a = isNaN(conf_a) ? 0 : conf_a
+    conf_b = isNaN(conf_b) ? 0 : conf_b
+
+    if (conf_a < conf_b)
+      return -1;
+    else if (conf_a > conf_b)
+      return 1;
+    else
+      return 0;
+  });
+
+  items.reverse();
+
+  $("ul#matching li").remove();
+  $.each(items, function(i, item) {
+    $("ul#matching").append(item);
+  });
 }
