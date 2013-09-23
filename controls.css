@@ -10,3 +10,10 @@ body#food-search-results #main > div.block-4 > div.col-1 div.block-4 div.col-1
   padding: 5px;
   width: 250px;
 }
+
+span.confirmation-count
+{
+  color: #555;
+  float: right;
+  padding-top: 4px;
+}

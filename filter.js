@@ -54,16 +54,12 @@ function loadFoodData()
     $(this).parent().addClass("food-" + food_id);
 
     $.get($(this).attr("href"), function(html) {
-      // TODO
-      // parse html, i.e. scrape confirmations, etc.
-      // add the confirmation count to the li
 
       var line = $(html).find(".user_submitted").html();
       if (line !== undefined)
       {
         var confirmations = line.match(/\d+/)[0]
-
-        $("ul#matching li.food-" + food_id).parent().append('<span class="confirmation-count">' + confirmations + '</li>');
+        $("ul#matching li.food-" + food_id).prepend('<span class="confirmation-count">' + confirmations + '</li>');
       }
       
 
