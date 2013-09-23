@@ -55,6 +55,8 @@ function loadFoodData()
 
     $.get($(this).attr("href"), function(html) {
 
+      foods[food_id] = html;
+
       var line = $(html).find(".user_submitted").html();
       if (line !== undefined)
       {
