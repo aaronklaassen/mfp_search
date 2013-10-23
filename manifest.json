@@ -19,7 +19,7 @@
     }
   ],
 
-  "web_accessible_resources": ["jquery-2.0.3.min.js", "controls.html"],
+  "web_accessible_resources": ["jquery-2.0.3.min.js", "jquery-2.0.3.min.map", "controls.html"],
 
   "icons": { "16": "images/Filled-Filter-16.png",
              "48": "images/Filled-Filter-48.png",
