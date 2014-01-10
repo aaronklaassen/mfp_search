@@ -8,8 +8,7 @@ You can install via the Chrome Web Store: [https://chrome.google.com/webstore/de
 
 ## Author
 
-Aaron Klaassen
-
-http://www.outerspacehero.com/
-
-aaron@outerspacehero.com
+Aaron Klaassen    
+http://www.outerspacehero.com/    
+aaron@outerspacehero.com    
+[@aaronklaassen](https://www.twitter.com/aaronklaassen/)
